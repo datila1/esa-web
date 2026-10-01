@@ -1,0 +1,511 @@
+<!doctype html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>ESA · Energía Solar Accesible | Santa Cruz, Bolivia</title>
+<meta name="description" content="ESA, Energía Solar Accesible: energía solar fotovoltaica e ingeniería eléctrica para hogares, empresas e industrias en Santa Cruz de la Sierra. Cotiza tu sistema solar.">
+<link rel="icon" type="image/png" href="img/favicon.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@600;700;800&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+/* ===== COLORES DE MARCA ESA ===== */
+:root{
+  --azul:#0A2F66;      /* azul corporativo (brochure) */
+  --azul-2:#16418A;
+  --celeste:#8EC5FF;   /* azul claro para fondos oscuros */
+  --sol:#E60000;       /* rojo de la "E" del logo */
+  --sol-2:#FF1F1F;
+  --verde:#1FA463;
+  --texto:#1B2733;
+  --gris:#5B6B7B;
+  --fondo:#F4F7FA;
+  --blanco:#FFFFFF;
+  --radio:18px;
+}
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{font-family:Inter,system-ui,sans-serif;color:var(--texto);background:var(--blanco);line-height:1.6}
+h1,h2,h3,.btn,.logo{font-family:Montserrat,system-ui,sans-serif}
+a{color:inherit;text-decoration:none}
+img{max-width:100%;display:block}
+.wrap{width:min(1180px,100% - 32px);margin-inline:auto}
+section{padding:88px 0}
+.kicker{display:inline-block;font:700 .78rem Montserrat,sans-serif;letter-spacing:.14em;text-transform:uppercase;color:var(--sol)}
+h2{font-size:clamp(1.8rem,3.4vw,2.6rem);line-height:1.15;color:var(--azul);margin:.4rem 0 1rem}
+.lead{font-size:1.1rem;color:var(--gris);max-width:640px}
+.btn{display:inline-flex;align-items:center;gap:.5rem;font-weight:700;font-size:.95rem;padding:.95rem 1.6rem;border-radius:999px;border:2px solid transparent;cursor:pointer;transition:.2s}
+.btn-sol{background:var(--sol);color:#fff}
+.btn-sol:hover{background:var(--sol-2);transform:translateY(-2px)}
+.btn-linea{border-color:#fff;color:#fff}
+.btn-linea:hover{background:#fff;color:var(--azul)}
+.btn-azul{background:var(--azul);color:#fff}
+.btn-azul:hover{background:var(--azul-2)}
+
+/* ===== PENDIENTE ===== */
+.pendiente{position:relative;border:2px dashed #E0A100;background:repeating-linear-gradient(45deg,#FFF8E6,#FFF8E6 12px,#FFFDF6 12px,#FFFDF6 24px);border-radius:var(--radio);color:#8A6400}
+.tag-pend{display:inline-block;background:#E0A100;color:#fff;font:800 .7rem Montserrat,sans-serif;letter-spacing:.1em;padding:.25rem .6rem;border-radius:6px;text-transform:uppercase}
+
+/* ===== FOTOS (se reemplazan dejando el archivo en /img) ===== */
+.foto{--img:linear-gradient(transparent,transparent);position:relative;border-radius:var(--radio);overflow:hidden;min-height:380px;background-color:var(--azul-2);
+  background-image:var(--img),
+   linear-gradient(135deg,rgba(11,42,74,.55),rgba(18,61,107,.2)),
+   repeating-linear-gradient(0deg,transparent 0 46px,rgba(255,255,255,.18) 46px 48px),
+   repeating-linear-gradient(90deg,transparent 0 70px,rgba(255,255,255,.18) 70px 72px),
+   linear-gradient(160deg,#2C6CB0,#0A2F66);
+  background-size:cover;background-position:center}
+.foto .tag-foto{position:absolute;left:14px;bottom:14px;background:rgba(0,0,0,.55);color:#fff;font-size:.75rem;padding:.3rem .65rem;border-radius:8px}
+.foto.ok .tag-foto{display:none}
+
+/* ===== MENÚ ===== */
+header{position:sticky;top:0;z-index:50;background:rgba(255,255,255,.96);backdrop-filter:blur(8px);box-shadow:0 1px 0 rgba(0,0,0,.06)}
+.nav{display:flex;align-items:center;justify-content:space-between;height:74px}
+.logo{display:flex;align-items:center;gap:.6rem;font-weight:800;font-size:1.5rem;color:var(--azul)}
+.logo img{height:40px;width:auto}
+.logo small{display:block;font:600 .62rem Inter,sans-serif;letter-spacing:.08em;color:var(--gris);text-transform:uppercase;line-height:1}
+.menu{display:flex;align-items:center;gap:1.6rem;list-style:none;font-weight:500;font-size:.95rem}
+.menu a:not(.btn):hover{color:var(--sol)}
+.burger{display:none;background:none;border:0;font-size:1.8rem;color:var(--azul);cursor:pointer}
+
+/* ===== HERO ===== */
+.hero{position:relative;min-height:88vh;display:flex;align-items:center;color:#fff;padding:120px 0 90px;border-radius:0}
+.hero.foto{border-radius:0;min-height:88vh}
+.hero::after{content:"";position:absolute;inset:0;background:linear-gradient(90deg,rgba(6,30,70,.92) 0%,rgba(10,47,102,.6) 55%,rgba(10,47,102,.05) 100%)}
+.hero .kicker{color:var(--celeste)}
+.hero .wrap{position:relative;z-index:2}
+.hero h1{font-size:clamp(2.3rem,5.5vw,4.1rem);line-height:1.05;max-width:760px;margin:.8rem 0 1.2rem}
+.hero h1 span{color:var(--celeste)}
+.hero p{font-size:1.2rem;max-width:600px;opacity:.92}
+.hero .acciones{display:flex;gap:1rem;flex-wrap:wrap;margin-top:2rem}
+.hero .tag-foto{z-index:3}
+
+/* ===== SEGMENTOS ===== */
+.segmentos{background:var(--fondo)}
+.tarjetas{display:grid;grid-template-columns:repeat(3,1fr);gap:24px;margin-top:2.5rem}
+.tarjeta{background:#fff;border-radius:var(--radio);overflow:hidden;box-shadow:0 10px 30px rgba(11,42,74,.08);display:flex;flex-direction:column;transition:.25s}
+.tarjeta:hover{transform:translateY(-6px);box-shadow:0 18px 40px rgba(11,42,74,.14)}
+.tarjeta .foto{min-height:220px;border-radius:0}
+.tarjeta .cuerpo{padding:1.6rem;display:flex;flex-direction:column;gap:.7rem;flex:1}
+.tarjeta h3{color:var(--azul);font-size:1.35rem}
+.tarjeta .cuerpo a{margin-top:auto;color:var(--azul);font-weight:700}
+.tarjeta .cuerpo a:hover{color:var(--sol)}
+
+.bloque{display:grid;grid-template-columns:1fr 1fr;gap:56px;align-items:center}
+.bloque.inv .foto{order:2}
+.lista{list-style:none;margin:1.2rem 0 1.8rem;display:grid;gap:.7rem}
+.lista li{padding-left:2rem;position:relative}
+.lista li::before{content:"✓";position:absolute;left:0;top:0;width:1.4rem;height:1.4rem;border-radius:50%;background:#E6F6EE;color:var(--verde);font-weight:800;display:grid;place-items:center;font-size:.8rem}
+
+/* ===== CIFRAS ===== */
+.cifras{background:var(--azul);color:#fff;padding:70px 0}
+.cifras .grid{display:grid;grid-template-columns:repeat(3,1fr);gap:24px;text-align:center}
+.cifra b{display:block;font:800 clamp(3rem,7vw,4.6rem) Montserrat,sans-serif;color:#fff;line-height:1}
+.cifra b small{font-size:.35em;color:var(--celeste);margin-left:.2rem}
+.cifra span{display:block;margin-top:.6rem;opacity:.9}
+.cifras .nota{text-align:center;opacity:.6;font-size:.8rem;margin-top:2rem}
+
+/* ===== PROCESO ===== */
+.pasos{display:grid;grid-template-columns:repeat(5,1fr);gap:20px;margin-top:2.5rem;counter-reset:p}
+.paso{background:var(--fondo);border-radius:var(--radio);padding:1.6rem}
+.paso::before{counter-increment:p;content:"0" counter(p);font:800 2rem Montserrat,sans-serif;color:var(--sol)}
+.paso h3{color:var(--azul);font-size:1.1rem;margin:.4rem 0}
+.paso p{color:var(--gris);font-size:.95rem}
+
+/* ===== MANTENIMIENTO ===== */
+.mant{background:linear-gradient(180deg,var(--fondo),#fff)}
+.iconos{display:grid;grid-template-columns:1fr 1fr;gap:16px;margin:1.5rem 0 2rem}
+.icono{background:#fff;border-radius:14px;padding:1rem 1.1rem;box-shadow:0 6px 18px rgba(11,42,74,.06)}
+.icono b{display:block;color:var(--azul);font-family:Montserrat,sans-serif}
+.icono span{font-size:.9rem;color:var(--gris)}
+
+/* ===== SOLUCIONES (3 verticales) ===== */
+.verticales{display:grid;grid-template-columns:repeat(3,1fr);gap:24px;margin-top:2.5rem}
+.vertical{border:1.5px solid #DCE4EF;border-radius:var(--radio);padding:1.8rem}
+.vertical h3{color:var(--azul);font-size:1.2rem;margin-bottom:.8rem}
+.vertical .lista{margin:0}
+.vertical.nueva{background:var(--azul);color:#fff;border-color:var(--azul)}
+.vertical.nueva h3{color:#fff}
+
+/* ===== NOSOTROS ===== */
+.valores{display:flex;flex-wrap:wrap;gap:.5rem;margin-top:1.4rem}
+.valores span{background:var(--fondo);color:var(--azul);font-weight:600;font-size:.85rem;padding:.4rem .9rem;border-radius:999px}
+.difs{display:grid;grid-template-columns:repeat(5,1fr);gap:16px;margin-top:3rem}
+.dif{background:var(--fondo);border-radius:14px;padding:1.2rem}
+.dif b{display:block;color:var(--azul);font-family:Montserrat,sans-serif;margin-bottom:.3rem}
+.dif span{font-size:.88rem;color:var(--gris)}
+.mv{display:grid;grid-template-columns:1fr 1fr;gap:24px;margin-top:2rem}
+.mv div{border-left:4px solid var(--sol);background:var(--fondo);border-radius:0 var(--radio) var(--radio) 0;padding:1.5rem}
+.mv h3{color:var(--azul);margin-bottom:.4rem}
+
+/* ===== TESTIMONIOS / LOGOS ===== */
+.testis{display:grid;grid-template-columns:repeat(3,1fr);gap:24px;margin-top:2rem}
+.testis .pendiente{padding:1.6rem;min-height:190px;display:flex;flex-direction:column;gap:.8rem}
+.logos{display:grid;grid-template-columns:repeat(6,1fr);gap:16px;margin-top:2.5rem}
+.logos .pendiente{height:80px;display:grid;place-items:center;font-size:.8rem;font-weight:600}
+
+/* ===== CONTACTO ===== */
+.contacto{background:var(--azul);color:#fff}
+.contacto h2{color:#fff}
+.contacto .kicker{color:var(--celeste)}
+.contacto .lead{color:rgba(255,255,255,.8)}
+.contacto .bloque{align-items:start}
+.datos{list-style:none;display:grid;gap:1rem;margin-top:1.8rem}
+.datos li{display:flex;gap:.9rem;align-items:flex-start}
+.datos i{font-style:normal;width:42px;height:42px;flex:none;border-radius:12px;background:rgba(255,255,255,.1);display:grid;place-items:center}
+.datos a:hover{color:var(--celeste)}
+form{background:#fff;color:var(--texto);border-radius:var(--radio);padding:2rem;display:grid;gap:1rem;grid-template-columns:1fr 1fr}
+form h3{grid-column:1/-1;color:var(--azul)}
+label{display:grid;gap:.35rem;font-size:.85rem;font-weight:600;color:var(--gris)}
+label.full{grid-column:1/-1}
+input,select,textarea{font:inherit;padding:.8rem .9rem;border:1.5px solid #D8E0E8;border-radius:10px;background:#fff;color:var(--texto)}
+input:focus,select:focus,textarea:focus{outline:none;border-color:var(--sol)}
+form .btn{grid-column:1/-1;justify-content:center}
+form small{grid-column:1/-1;color:var(--gris);font-size:.78rem}
+
+/* ===== PIE ===== */
+footer{background:#061A2E;color:rgba(255,255,255,.75);padding:60px 0 28px;font-size:.92rem}
+.pie{display:grid;grid-template-columns:2fr 1fr 1fr 1fr;gap:32px}
+footer h4{color:#fff;font-family:Montserrat,sans-serif;margin-bottom:.8rem}
+footer ul{list-style:none;display:grid;gap:.45rem}
+footer a:hover{color:var(--celeste)}
+footer .logo{color:#fff}
+.legal{border-top:1px solid rgba(255,255,255,.1);margin-top:40px;padding-top:20px;display:flex;justify-content:space-between;flex-wrap:wrap;gap:8px;font-size:.82rem}
+
+/* ===== WHATSAPP FLOTANTE ===== */
+.wa{position:fixed;right:20px;bottom:20px;z-index:60;width:62px;height:62px;border-radius:50%;background:#25D366;display:grid;place-items:center;box-shadow:0 10px 25px rgba(0,0,0,.25);transition:.2s}
+.wa:hover{transform:scale(1.08)}
+
+/* ===== RESPONSIVO ===== */
+@media (max-width:960px){
+  .menu{position:fixed;inset:74px 0 auto 0;background:#fff;flex-direction:column;align-items:flex-start;padding:1.2rem 16px 1.6rem;gap:1rem;box-shadow:0 12px 20px rgba(0,0,0,.08);display:none}
+  .menu.abierto{display:flex}
+  .burger{display:block}
+  .tarjetas,.testis,.pasos,.cifras .grid,.difs{grid-template-columns:1fr 1fr}
+  .verticales{grid-template-columns:1fr}
+  .bloque,.mv{grid-template-columns:1fr;gap:32px}
+  .bloque.inv .foto{order:0}
+  .logos{grid-template-columns:repeat(3,1fr)}
+  .pie{grid-template-columns:1fr 1fr}
+}
+@media (max-width:600px){
+  section{padding:64px 0}
+  .tarjetas,.testis,.pasos,.cifras .grid,.iconos,form,.pie,.difs{grid-template-columns:1fr}
+  .foto{min-height:260px}
+  .hero{min-height:auto}
+}
+</style>
+</head>
+<body>
+
+<!-- ================= MENÚ ================= -->
+<header>
+  <div class="wrap nav">
+    <a href="#inicio" class="logo" aria-label="ESA inicio">
+      <img src="img/logo.png" alt="ESA Energía Solar Accesible" width="213" height="40">
+    </a>
+    <button class="burger" aria-label="Abrir menú" onclick="document.querySelector('.menu').classList.toggle('abierto')">☰</button>
+    <ul class="menu" onclick="if(event.target.tagName==='A')this.classList.remove('abierto')">
+      <li><a href="#inicio">Inicio</a></li>
+      <li><a href="#hogar">Hogar</a></li>
+      <li><a href="#empresas">Empresas</a></li>
+      <li><a href="#industria">Industria / Grandes proyectos</a></li>
+      <li><a href="#nosotros">Nosotros</a></li>
+      <li><a href="#contacto">Contacto</a></li>
+      <li><a href="#contacto" class="btn btn-sol">Cotiza ahora</a></li>
+    </ul>
+  </div>
+</header>
+
+<!-- ================= HERO ================= -->
+<section id="inicio" class="hero foto" data-foto="img/hero.jpg">
+  <div class="wrap">
+    <span class="kicker">Mejorando tu presente</span>
+    <h1>Baja tu factura de luz generando tu <span>propia energía solar</span></h1>
+    <p>Diseñamos, instalamos y mantenemos sistemas solares para hogares, empresas e industrias en Santa Cruz, conectados a la red de CRE como generación distribuida. Un solo equipo responsable, de principio a fin.</p>
+    <div class="acciones">
+      <a href="#contacto" class="btn btn-sol">Cotiza ahora →</a>
+      <a href="#" class="btn btn-linea js-wa">Escríbenos por WhatsApp</a>
+    </div>
+  </div>
+</section>
+
+<!-- ================= SEGMENTOS (resumen) ================= -->
+<section class="segmentos">
+  <div class="wrap">
+    <span class="kicker">Soluciones a tu medida</span>
+    <h2>Energía solar para cada necesidad</h2>
+    <p class="lead">Desde el análisis de tu consumo hasta la instalación, operación y mantenimiento. Atendemos clientes públicos y privados.</p>
+    <div class="tarjetas">
+      <article class="tarjeta">
+        <div class="foto" data-foto="img/hogar.jpg"><span class="tag-foto">img/hogar.jpg</span></div>
+        <div class="cuerpo"><h3>Hogar</h3><p>Paneles en tu techo para reducir tu factura mes a mes y ganar independencia energética.</p><a href="#hogar">Ver más →</a></div>
+      </article>
+      <article class="tarjeta">
+        <div class="foto" data-foto="img/empresas.jpg"><span class="tag-foto">img/empresas.jpg</span></div>
+        <div class="cuerpo"><h3>Empresas</h3><p>Comercios, oficinas, clínicas y colegios: convierte tu techo en un activo que baja tus costos operativos.</p><a href="#empresas">Ver más →</a></div>
+      </article>
+      <article class="tarjeta">
+        <div class="foto" data-foto="img/industria.jpg"><span class="tag-foto">img/industria.jpg</span></div>
+        <div class="cuerpo"><h3>Industria y grandes proyectos</h3><p>Plantas solares e ingeniería eléctrica para operaciones de alto consumo energético.</p><a href="#industria">Ver más →</a></div>
+      </article>
+    </div>
+  </div>
+</section>
+
+<!-- ================= HOGAR ================= -->
+<section id="hogar">
+  <div class="wrap bloque">
+    <div class="foto" data-foto="img/hogar-2.jpg"><span class="tag-foto">Foto provisional · img/hogar-2.jpg</span></div>
+    <div>
+      <span class="kicker">Hogar</span>
+      <h2>Tu casa produciendo su propia energía</h2>
+      <p class="lead">Instalamos un sistema solar dimensionado según tu consumo real, para que pagues menos luz desde el primer mes.</p>
+      <ul class="lista">
+        <li>Estudio de tu factura de CRE y diseño a medida</li>
+        <li>Trámite de conexión como generación distribuida</li>
+        <li>Alternativas de financiamiento</li>
+        <li>Instalación limpia y segura por ingenieros certificados</li>
+        <li>7 años de mantenimiento preventivo gratuito</li>
+      </ul>
+      <a href="#contacto" class="btn btn-azul" data-segmento="Hogar">Cotiza para tu hogar</a>
+    </div>
+  </div>
+</section>
+
+<!-- ================= EMPRESAS ================= -->
+<section id="empresas" style="background:var(--fondo)">
+  <div class="wrap bloque inv">
+    <div class="foto" data-foto="img/empresas-2.jpg"><span class="tag-foto">Foto provisional · img/empresas-2.jpg</span></div>
+    <div>
+      <span class="kicker">Empresas</span>
+      <h2>Menos costo de energía, más margen para tu negocio</h2>
+      <p class="lead">La energía es uno de tus costos fijos más altos. Con un sistema solar lo conviertes en una inversión con retorno medible.</p>
+      <ul class="lista">
+        <li>Evaluación técnica y financiera del proyecto (ahorro, retorno, flujo de caja)</li>
+        <li>Diseño para comercios, oficinas, clínicas, colegios y edificios</li>
+        <li>Alternativas de financiamiento para tu proyecto</li>
+        <li>Instalación con mínima interrupción de tu operación</li>
+        <li>Imagen sostenible frente a tus clientes</li>
+      </ul>
+      <a href="#contacto" class="btn btn-azul" data-segmento="Empresa">Cotiza para tu empresa</a>
+    </div>
+  </div>
+</section>
+
+<!-- ================= INDUSTRIA ================= -->
+<section id="industria">
+  <div class="wrap bloque">
+    <div class="foto" data-foto="img/industria-2.jpg"><span class="tag-foto">Foto provisional · img/industria-2.jpg</span></div>
+    <div>
+      <span class="kicker">Industria / Grandes proyectos</span>
+      <h2>Ingeniería solar y eléctrica a escala industrial</h2>
+      <p class="lead">Proyectos fotovoltaicos de mayor potencia e ingeniería eléctrica integral para industrias e instituciones públicas y privadas.</p>
+      <ul class="lista">
+        <li>Plantas solares en techo, suelo y estacionamientos</li>
+        <li>Ingeniería eléctrica: diseño, subestaciones y adecuaciones</li>
+        <li>Eficiencia y gestión energética</li>
+        <li>Operación y mantenimiento durante toda la vida del proyecto</li>
+      </ul>
+      <a href="#contacto" class="btn btn-azul" data-segmento="Industria">Cotiza tu proyecto</a>
+    </div>
+  </div>
+</section>
+
+<!-- ================= CIFRAS (garantías) ================= -->
+<section class="cifras">
+  <div class="wrap">
+    <div class="grid">
+      <div class="cifra"><b>12<small>años</small></b><span>de garantía de producto</span></div>
+      <div class="cifra"><b>30<small>años</small></b><span>de garantía de eficiencia y potencia de los paneles</span></div>
+      <div class="cifra"><b>7<small>años</small></b><span>de mantenimiento preventivo gratuito</span></div>
+    </div>
+    <p class="nota">Las garantías de producto y de potencia las otorga cada fabricante y se detallan en cada propuesta. El mantenimiento preventivo gratuito lo brinda ESA.</p>
+  </div>
+</section>
+
+<!-- ================= PROCESO ================= -->
+<section>
+  <div class="wrap">
+    <span class="kicker">Cómo trabajamos</span>
+    <h2>Del análisis a la energía, en 5 pasos</h2>
+    <p class="lead">Un mismo proceso en cada proyecto y un solo equipo responsable. En cada etapa sabes qué se hace y qué resultado esperar.</p>
+    <div class="pasos">
+      <div class="paso"><h3>Analizamos</h3><p>Tu consumo, tus facturas, los horarios de uso, el espacio disponible y el tipo de conexión.</p></div>
+      <div class="paso"><h3>Diseñamos</h3><p>Dimensionamos el sistema y su ingeniería eléctrica para una solución segura y eficiente.</p></div>
+      <div class="paso"><h3>Proponemos</h3><p>Alternativas claras: inversión, ahorro, retorno y opciones de financiamiento.</p></div>
+      <div class="paso"><h3>Implementamos</h3><p>Suministro, instalación, puesta en marcha y conexión a la red ante CRE.</p></div>
+      <div class="paso"><h3>Acompañamos</h3><p>Monitoreo, mantenimiento y soporte técnico postventa.</p></div>
+    </div>
+  </div>
+</section>
+
+<!-- ================= SOLUCIONES ================= -->
+<section id="soluciones" style="background:var(--fondo)">
+  <div class="wrap">
+    <span class="kicker">Nuestro ecosistema de energía</span>
+    <h2>Tres verticales, una visión</h2>
+    <p class="lead">Hacer que la energía limpia sea más accesible, con un solo equipo técnico responsable de principio a fin.</p>
+    <div class="verticales">
+      <div class="vertical nueva"><h3>Energía Solar Fotovoltaica</h3><ul class="lista"><li>Ingeniería y dimensionamiento</li><li>Suministro de equipos</li><li>Instalación y puesta en marcha</li><li>Generación distribuida</li><li>Monitoreo y mantenimiento</li><li>Alternativas de financiamiento</li></ul></div>
+      <div class="vertical" style="background:#fff"><h3>Soluciones Energéticas</h3><ul class="lista"><li>Diagnóstico y eficiencia energética</li><li>Monitoreo y gestión del consumo</li><li>Gestión de la demanda</li><li>Operación y mantenimiento (O&amp;M)</li></ul></div>
+      <div class="vertical" style="background:#fff"><h3>Electromovilidad</h3><ul class="lista"><li>Cargadores residenciales y comerciales</li><li>Infraestructura de carga</li><li>Electrolineras</li><li>Carga para vehículos de empresas</li></ul></div>
+    </div>
+  </div>
+</section>
+
+<!-- ================= MANTENIMIENTO Y MONITOREO ================= -->
+<section id="mantenimiento" class="mant">
+  <div class="wrap bloque inv">
+    <div class="foto" data-foto="img/mantenimiento.jpg"><span class="tag-foto">Foto provisional · img/mantenimiento.jpg</span></div>
+    <div>
+      <span class="kicker">Mantenimiento y monitoreo</span>
+      <h2>Tu sistema siempre rindiendo al máximo</h2>
+      <p class="lead">Un sistema solar bien mantenido produce más energía y dura más. Por eso incluimos 7 años de mantenimiento preventivo gratuito.</p>
+      <div class="iconos">
+        <div class="icono"><b>Mantenimiento preventivo</b><span>Limpieza, revisión eléctrica y ajustes periódicos.</span></div>
+        <div class="icono"><b>Monitoreo de producción</b><span>Seguimiento de la energía que genera tu sistema.</span></div>
+        <div class="icono"><b>Soporte técnico</b><span>Ingenieros que conocen tu instalación.</span></div>
+        <div class="icono"><b>Mantenimiento correctivo</b><span>Atención ante fallas o alertas del sistema.</span></div>
+      </div>
+      <a href="#contacto" class="btn btn-azul" data-segmento="Mantenimiento">Solicita mantenimiento</a>
+    </div>
+  </div>
+</section>
+
+<!-- ================= NOSOTROS ================= -->
+<section id="nosotros">
+  <div class="wrap bloque">
+    <div>
+      <span class="kicker">Nosotros</span>
+      <h2>Ingenieros que hacen la energía limpia accesible</h2>
+      <p class="lead">ESA es una empresa cruceña de soluciones energéticas e ingeniería eléctrica. Creemos que la energía limpia no debe ser exclusiva ni distante: nuestro equipo de ingenieros eléctricos certificados y con experiencia la convierte en soluciones prácticas y viables económicamente.</p>
+      <div class="mv">
+        <div><h3>Misión</h3><p>Conectar personas, empresas e industrias con energía limpia, accesible y eficiente.</p></div>
+        <div><h3>Visión</h3><p>Crear un futuro donde la energía limpia y accesible impulse la vida, los negocios y el desarrollo.</p></div>
+      </div>
+      <div class="valores"><span>Calidad técnica</span><span>Confianza</span><span>Seguridad</span><span>Innovación</span><span>Responsabilidad ambiental</span><span>Compromiso con el cliente</span></div>
+    </div>
+    <div class="foto" data-foto="img/equipo.jpg"><span class="tag-foto">Foto provisional · img/equipo.jpg</span></div>
+  </div>
+  <div class="wrap">
+    <div class="difs">
+      <div class="dif"><b>Ingeniería antes que equipos</b><span>Dimensionamos según tu consumo real, no con paquetes estándar.</span></div>
+      <div class="dif"><b>Solución integral</b><span>Un solo equipo, del análisis a la operación y mantenimiento.</span></div>
+      <div class="dif"><b>Decisiones con números</b><span>Inversión, ahorro, retorno y escenarios económicos claros.</span></div>
+      <div class="dif"><b>Soporte postventa</b><span>Seguimos contigo con monitoreo, mantenimiento y soporte.</span></div>
+      <div class="dif"><b>Tecnología seleccionada</b><span>Equipos de fabricantes reconocidos, según cada proyecto.</span></div>
+    </div>
+  </div>
+</section>
+
+<!-- ================= PROYECTOS / TESTIMONIOS / LOGOS (PENDIENTE) ================= -->
+<section id="proyectos" style="background:var(--fondo)">
+  <div class="wrap">
+    <span class="kicker">Proyectos y clientes</span>
+    <h2>Lo que dicen nuestros clientes</h2>
+    <p class="lead"><span class="tag-pend">Pendiente</span> Esta sección se completará con proyectos y testimonios reales.</p>
+    <div class="testis">
+      <div class="pendiente"><span class="tag-pend">Pendiente</span><p>Testimonio de cliente 1 (nombre, tipo de cliente, potencia instalada, foto del proyecto).</p></div>
+      <div class="pendiente"><span class="tag-pend">Pendiente</span><p>Testimonio de cliente 2.</p></div>
+      <div class="pendiente"><span class="tag-pend">Pendiente</span><p>Testimonio de cliente 3.</p></div>
+    </div>
+    <div class="logos">
+      <div class="pendiente">Logo pendiente</div><div class="pendiente">Logo pendiente</div><div class="pendiente">Logo pendiente</div>
+      <div class="pendiente">Logo pendiente</div><div class="pendiente">Logo pendiente</div><div class="pendiente">Logo pendiente</div>
+    </div>
+  </div>
+</section>
+
+<!-- ================= CONTACTO ================= -->
+<section id="contacto" class="contacto">
+  <div class="wrap bloque">
+    <div>
+      <span class="kicker">Contacto</span>
+      <h2>Cotiza tu sistema solar</h2>
+      <p class="lead">Cuéntanos sobre tu consumo y te preparamos una propuesta técnica y económica sin compromiso.</p>
+      <ul class="datos">
+        <li><i>💬</i><div><b>WhatsApp / Teléfono</b><br><a href="#" class="js-wa">(591) 776-66653</a></div></li>
+        <li><i>✉️</i><div><b>Correo</b><br><a class="js-mail" href="mailto:comercial@esa.com.bo">comercial@esa.com.bo</a></div></li>
+        <li><i>📍</i><div><b>Oficina</b><br>Tercer Anillo Externo N° 3040, entre Beni y Alemana<br>Santa Cruz de la Sierra, Bolivia<br><a href="https://maps.google.com/?q=Tercer+Anillo+Externo+3040,+Santa+Cruz+de+la+Sierra,+Bolivia" target="_blank" rel="noopener" style="text-decoration:underline">Ver en el mapa</a></div></li>
+      </ul>
+    </div>
+    <form id="form" onsubmit="return enviarWA(event)">
+      <h3>Solicita tu cotización</h3>
+      <label>Nombre<input name="nombre" required></label>
+      <label>Teléfono / WhatsApp<input name="telefono" type="tel" required></label>
+      <label>Tipo de cliente
+        <select name="tipo"><option>Hogar</option><option>Empresa</option><option>Industria</option><option>Mantenimiento</option><option>Otro</option></select>
+      </label>
+      <label>Factura de luz mensual (Bs)<input name="factura" type="number" min="0" placeholder="Ej.: 600"></label>
+      <label class="full">Zona / ciudad<input name="zona" placeholder="Ej.: Equipetrol, Santa Cruz"></label>
+      <label class="full">Mensaje<textarea name="mensaje" rows="3" placeholder="Cuéntanos tu necesidad"></textarea></label>
+      <button class="btn btn-sol" type="submit">Enviar por WhatsApp</button>
+      <small>Al enviar se abrirá WhatsApp con tus datos listos para mandarnos.</small>
+    </form>
+  </div>
+</section>
+
+<!-- ================= PIE ================= -->
+<footer>
+  <div class="wrap">
+    <div class="pie">
+      <div>
+        <img src="img/logo-blanco.png" alt="ESA Energía Solar Accesible" width="213" height="40" style="margin-bottom:1rem">
+        <p>Energía solar fotovoltaica e ingeniería eléctrica en Santa Cruz de la Sierra, Bolivia.<br><b style="color:var(--celeste)">MEJORANDO TU PRESENTE</b></p>
+      </div>
+      <div><h4>Soluciones</h4><ul><li><a href="#hogar">Hogar</a></li><li><a href="#empresas">Empresas</a></li><li><a href="#industria">Industria</a></li><li><a href="#mantenimiento">Mantenimiento</a></li><li><a href="#soluciones">Electromovilidad</a></li></ul></div>
+      <div><h4>Empresa</h4><ul><li><a href="#nosotros">Nosotros</a></li><li><a href="#proyectos">Proyectos</a></li><li><a href="#contacto">Contacto</a></li></ul></div>
+      <div><h4>Contacto</h4><ul><li><a class="js-mail" href="mailto:comercial@esa.com.bo">comercial@esa.com.bo</a></li><li><a href="#" class="js-wa">(591) 776-66653</a></li><li>Tercer Anillo Externo N° 3040, entre Beni y Alemana, Santa Cruz de la Sierra</li></ul></div>
+    </div>
+    <div class="legal"><span>© <span id="anio"></span> ESA · Energía Solar Accesible. Todos los derechos reservados.</span><span>esa.com.bo</span></div>
+  </div>
+</footer>
+
+<!-- ================= WHATSAPP FLOTANTE ================= -->
+<a href="#" class="wa js-wa" aria-label="Escríbenos por WhatsApp">
+  <svg width="32" height="32" viewBox="0 0 32 32" fill="#fff" aria-hidden="true"><path d="M16 3C8.8 3 3 8.7 3 15.8c0 2.5.7 4.9 2 7L3 29l6.4-2c2 1.1 4.3 1.7 6.6 1.7 7.2 0 13-5.7 13-12.8S23.2 3 16 3zm0 23.4c-2.1 0-4.1-.6-5.9-1.7l-.4-.3-3.8 1.2 1.2-3.7-.3-.4a10.5 10.5 0 0 1-1.7-5.7C5.1 10 10 5.2 16 5.2S26.9 10 26.9 15.9 22 26.4 16 26.4zm6-7.8c-.3-.2-1.9-1-2.2-1.1-.3-.1-.5-.2-.7.2l-1 1.2c-.2.2-.4.2-.7.1-.3-.2-1.4-.5-2.6-1.6-1-.9-1.6-1.9-1.8-2.2-.2-.3 0-.5.1-.7l.5-.6.3-.5c.1-.2 0-.4 0-.6l-1-2.4c-.3-.6-.5-.5-.7-.5h-.6c-.2 0-.6.1-.9.4-.3.3-1.2 1.1-1.2 2.7s1.2 3.2 1.4 3.4c.2.2 2.4 3.6 5.7 5 .8.3 1.4.5 1.9.7.8.3 1.5.2 2.1.1.6-.1 1.9-.8 2.2-1.5.3-.7.3-1.4.2-1.5-.1-.2-.3-.3-.6-.4z"/></svg>
+</a>
+
+<script>
+/* ========= CONFIGURACIÓN: completar con los datos reales ========= */
+const ESA = {
+  whatsapp: "59177666653",          // código 591 + número, sin espacios ni "+"
+  correo:   "comercial@esa.com.bo",
+  mensajeWA:"Hola ESA, quiero cotizar un sistema solar."
+};
+
+const waURL = (txt) => "https://wa.me/" + ESA.whatsapp + "?text=" + encodeURIComponent(txt || ESA.mensajeWA);
+document.querySelectorAll(".js-wa").forEach(a => { a.href = waURL(); a.target = "_blank"; a.rel = "noopener"; });
+document.querySelectorAll(".js-mail").forEach(a => { a.href = "mailto:" + ESA.correo; a.textContent = ESA.correo; });
+document.getElementById("anio").textContent = new Date().getFullYear();
+
+/* Botones "Cotiza para..." preseleccionan el tipo de cliente */
+document.querySelectorAll("[data-segmento]").forEach(b => b.addEventListener("click", () => {
+  document.querySelector("select[name=tipo]").value = b.dataset.segmento;
+}));
+
+/* Formulario -> mensaje de WhatsApp (no necesita servidor) */
+function enviarWA(e){
+  e.preventDefault();
+  const f = new FormData(e.target);
+  const txt = `Hola ESA, quiero una cotización.
+Nombre: ${f.get("nombre")}
+Teléfono: ${f.get("telefono")}
+Tipo de cliente: ${f.get("tipo")}
+Factura mensual: Bs ${f.get("factura") || "-"}
+Zona: ${f.get("zona") || "-"}
+Mensaje: ${f.get("mensaje") || "-"}`;
+  window.open(waURL(txt), "_blank");
+  return false;
+}
+
+/* Fotos: si existe el archivo en /img se muestra; si no, queda el fondo provisional */
+document.querySelectorAll("[data-foto]").forEach(el => {
+  const src = el.dataset.foto, img = new Image();
+  img.onload = () => { el.style.setProperty("--img", `url('${src}')`); el.classList.add("ok"); };
+  img.src = src;
+});
+</script>
+</body>
+</html>
