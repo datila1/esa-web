@@ -1,0 +1,5 @@
+# esa.com.bo — acceso permitido a buscadores y asistentes de IA
+User-agent: *
+Allow: /
+
+Sitemap: https://esa.com.bo/sitemap.xml
