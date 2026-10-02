@@ -25,3 +25,11 @@ Santa Cruz de la Sierra y el departamento de Santa Cruz, Bolivia.
 - Correo: comercial@esa.com.bo
 - Oficina: Tercer Anillo Externo N° 3040, entre Beni y Alemana, Santa Cruz de la Sierra, Bolivia
 - Web: https://esa.com.bo
+
+## Páginas
+- Inicio: https://esa.com.bo/
+- Hogar: https://esa.com.bo/hogar.html
+- Empresas: https://esa.com.bo/empresas.html
+- Grandes proyectos: https://esa.com.bo/grandes-proyectos.html
+- Nosotros: https://esa.com.bo/nosotros.html
+- Contacto: https://esa.com.bo/contacto.html
