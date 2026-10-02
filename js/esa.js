@@ -58,3 +58,12 @@ if (carrusel) {
   carrusel.addEventListener("focusin", () => clearInterval(timer));
   mostrar(0); iniciar();
 }
+
+/* Flechas de los carruseles de tarjetas */
+document.querySelectorAll(".deslizar").forEach(d => {
+  const pista = d.querySelector(".pista");
+  d.querySelectorAll(".flecha").forEach(b => b.addEventListener("click", () => {
+    const paso = pista.clientWidth * 0.8 * (b.classList.contains("izq") ? -1 : 1);
+    pista.scrollBy({ left: paso, behavior: matchMedia("(prefers-reduced-motion: reduce)").matches ? "auto" : "smooth" });
+  }));
+});

@@ -71,7 +71,7 @@ def cabecera(archivo):
     for href, nombre in MENU:
         actual = ' aria-current="page"' if href == archivo else ""
         items.append(f'      <li><a href="{href}"{actual}>{nombre}</a></li>')
-    items.append('      <li><a href="contacto.html#cotizar" class="btn btn-rojo">Cotiza ahora</a></li>')
+    items.append('      <li><a href="contacto.html#cotizar" class="btn btn-borde">Cotiza ahora</a></li>')
     return f'''<a href="#contenido" class="saltar">Saltar al contenido</a>
 <header>
   <div class="wrap nav">
@@ -86,30 +86,32 @@ def cabecera(archivo):
 
 CONTACTO_FINAL = f'''<section class="contacto-final">
   <div class="wrap">
-    <h2>¿No encontraste lo que buscabas?</h2>
+    <h2 class="titulo-linea">¿No encontraste lo que buscabas?</h2>
     <p class="lead">Escríbenos o llámanos. Un ingeniero de ESA te responde.</p>
     <div class="canales">
       <a class="canal js-wa" href="#">{ICONO_WA.format(t=30)}<div><b>WhatsApp</b><span>+591 776-66653</span></div></a>
       <a class="canal" href="tel:+59177666653">{ICONO_TEL}<div><b>Llámanos</b><span>(591) 776-66653</span></div></a>
       <a class="canal js-mail" href="mailto:comercial@esa.com.bo">{ICONO_MAIL}<div><b>Correo</b><span>comercial@esa.com.bo</span></div></a>
     </div>
-    <div class="pendiente mt"><span class="tag-pend">PENDIENTE</span><p>Redes sociales de ESA (Facebook, Instagram, TikTok, LinkedIn).</p></div>
   </div>
 </section>'''
 
 PIE = '''<footer>
   <div class="wrap">
     <div class="pie">
-      <div>
-        <img src="img/logo-blanco.png" alt="ESA Energía Solar Accesible" width="213" height="40" style="margin-bottom:1rem">
-        <p>Soluciones energéticas e ingeniería eléctrica en Santa Cruz de la Sierra, Bolivia.</p>
-        <p class="lema" style="color:var(--celeste);margin-top:.6rem">MEJORANDO TU PRESENTE</p>
+      <div class="contacto-pie">
+        <img src="img/logo-blanco.png" alt="ESA Energía Solar Accesible" width="213" height="40" style="margin-bottom:1.3rem">
+        <p>Llámanos al <a href="tel:+59177666653">(591) 776-66653</a></p>
+        <p>WhatsApp <a href="#" class="js-wa">+591 776-66653</a></p>
+        <p>Correo <a class="js-mail" href="mailto:comercial@esa.com.bo">comercial@esa.com.bo</a></p>
+        <p>Dirección: Tercer Anillo Externo N° 3040, entre Beni y Alemana, Santa Cruz de la Sierra</p>
+        <div class="redes" title="Redes sociales pendientes"><span>FB</span><span>IG</span><span>TT</span><span>IN</span></div>
       </div>
-      <div><h4>Soluciones</h4><ul><li><a href="hogar.html">Hogar</a></li><li><a href="empresas.html">Empresas</a></li><li><a href="grandes-proyectos.html">Grandes proyectos</a></li><li><a href="index.html#mantenimiento">Mantenimiento</a></li></ul></div>
-      <div><h4>ESA</h4><ul><li><a href="nosotros.html">Nosotros</a></li><li><a href="nosotros.html#ecosistema">Electromovilidad</a></li><li><a href="contacto.html">Contacto</a></li></ul></div>
-      <div><h4>Contacto</h4><ul><li><a href="#" class="js-wa">WhatsApp (591) 776-66653</a></li><li><a class="js-mail" href="mailto:comercial@esa.com.bo">comercial@esa.com.bo</a></li><li>Tercer Anillo Externo N° 3040, entre Beni y Alemana, Santa Cruz de la Sierra</li></ul></div>
+      <div><h4>Compañía</h4><ul><li><a href="nosotros.html">Nosotros</a></li><li><a href="nosotros.html#ecosistema">Nuestro ecosistema</a></li><li><a href="contacto.html">Trabaja con nosotros</a></li></ul></div>
+      <div><h4>Soluciones energéticas</h4><ul><li><a href="hogar.html">Hogar</a></li><li><a href="empresas.html">Empresas</a></li><li><a href="grandes-proyectos.html">Grandes proyectos</a></li><li><a href="index.html#mantenimiento">Mantenimiento</a></li></ul></div>
+      <div><h4>Centro de ayuda</h4><ul><li><a href="contacto.html">Contáctanos</a></li><li><a href="contacto.html#cotizar">Cotiza tu sistema</a></li></ul></div>
     </div>
-    <div class="legal"><span>© <span class="js-anio">2026</span> ESA Energía Solar Accesible. Todos los derechos reservados.</span><span>esa.com.bo</span></div>
+    <div class="legal"><span>© <span class="js-anio">2026</span> ESA Energía Solar Accesible. Todos los derechos reservados.</span><span class="lema">MEJORANDO TU PRESENTE</span></div>
   </div>
 </footer>'''
 
