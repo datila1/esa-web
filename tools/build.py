@@ -4,7 +4,7 @@ Uso:  python3 tools/build.py   (desde la raíz del repositorio)
 Cabecera, menú, pie, WhatsApp y metadatos se escriben una sola vez aquí;
 el contenido de cada página está en tools/paginas/*.html.
 """
-import json, pathlib, datetime
+import json, pathlib, datetime, hashlib
 
 RAIZ = pathlib.Path(__file__).resolve().parent.parent
 DOM = "https://esa.com.bo/"
@@ -125,6 +125,11 @@ PIE = '''<footer>
 WA_FLOTANTE = f'<a href="#" class="wa js-wa" aria-label="Escríbenos por WhatsApp">{ICONO_WA.format(t=34)}</a>'
 
 
+def version(ruta):
+    """Huella corta del archivo: cambia cuando cambia el archivo y obliga al navegador a descargarlo de nuevo."""
+    return hashlib.md5((RAIZ / ruta).read_bytes()).hexdigest()[:8]
+
+
 def pagina(archivo, cuerpo):
     titulo, desc = PAGINAS[archivo]
     url = DOM if archivo == "index.html" else DOM + archivo
@@ -156,7 +161,7 @@ def pagina(archivo, cuerpo):
 <link rel="preload" href="fonts/android.woff2" as="font" type="font/woff2" crossorigin>
 <link rel="preload" href="fonts/outfit-latin-600-normal.woff2" as="font" type="font/woff2" crossorigin>
 <link rel="preload" href="{PORTADA.get(archivo, "img/hero.jpg")}" as="image" fetchpriority="high">
-<link rel="stylesheet" href="css/esa.css">{ld}
+<link rel="stylesheet" href="css/esa.css?v={version("css/esa.css")}">{ld}
 </head>
 <body>
 {cabecera(archivo)}
@@ -170,7 +175,7 @@ def pagina(archivo, cuerpo):
 {PIE}
 
 {WA_FLOTANTE}
-<script src="js/esa.js"></script>
+<script src="js/esa.js?v={version("js/esa.js")}"></script>
 </body>
 </html>
 '''
