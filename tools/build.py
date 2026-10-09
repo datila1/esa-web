@@ -19,19 +19,21 @@ MENU = [
 ]
 
 PAGINAS = {
-    "index.html": ("ESA Energía Solar Accesible | Paneles solares en Santa Cruz, Bolivia",
-                   "ESA, Energía Solar Accesible: energía solar fotovoltaica e ingeniería eléctrica para hogares, empresas e industrias en Santa Cruz de la Sierra. Cotiza tu sistema solar."),
+    "index.html": ("Paneles solares en Santa Cruz, Bolivia | ESA Energía Solar",
+                   "Paneles solares para casas, empresas e industrias en Santa Cruz de la Sierra, conectados a la red de CRE. Diseño, instalación y mantenimiento. Cotiza gratis."),
     "hogar.html": ("Paneles solares para tu casa en Santa Cruz | ESA",
                    "Genera tu propia energía y baja tu factura de luz. Sistemas solares para hogares conectados a la red de CRE, con 7 años de mantenimiento preventivo gratuito."),
     "empresas.html": ("Energía solar para empresas en Santa Cruz | ESA",
                       "Reduce los costos de energía de tu empresa con un sistema solar diseñado según tu consumo real. Estudio energético, instalación, operación y mantenimiento."),
     "grandes-proyectos.html": ("Plantas solares e ingeniería eléctrica a gran escala | ESA",
-                               "Proyectos fotovoltaicos de gran escala e ingeniería eléctrica integral para industrias e instituciones en Bolivia: desarrollo, construcción, operación y mantenimiento."),
+                               "Plantas solares e ingeniería eléctrica para industrias e instituciones en Bolivia. Estudio, construcción, operación y mantenimiento con un mismo equipo."),
     "nosotros.html": ("Nosotros | ESA Energía Solar Accesible",
-                      "Conoce a ESA: empresa cruceña de soluciones energéticas e ingeniería eléctrica. Misión, visión, valores y lo que nos diferencia."),
+                      "ESA es una empresa cruceña de energía solar e ingeniería eléctrica. Conoce a nuestro equipo de ingenieros, nuestra misión, valores y forma de trabajar."),
     "contacto.html": ("Contacto | ESA Energía Solar Accesible",
                       "Escríbenos por WhatsApp al +591 776-66653, a comercial@esa.com.bo o visítanos en el Tercer Anillo Externo N° 3040, Santa Cruz de la Sierra."),
 }
+
+PORTADA = {"hogar.html": "img/hogar-portada.jpg"}
 
 EMPRESA = {
     "@context": "https://schema.org",
@@ -75,7 +77,7 @@ def cabecera(archivo):
     return f'''<a href="#contenido" class="saltar">Saltar al contenido</a>
 <header>
   <div class="wrap nav">
-    <a href="index.html" class="logo"><img src="img/logo.png" alt="ESA Energía Solar Accesible, ir al inicio" width="139" height="26"></a>
+    <a href="index.html" class="logo" translate="no"><img src="img/logo.png" alt="ESA Energía Solar Accesible, ir al inicio" width="139" height="26"></a>
     <button class="burger" aria-label="Abrir menú" aria-expanded="false" aria-controls="menu">☰</button>
     <ul class="menu" id="menu">
 {chr(10).join(items)}
@@ -111,7 +113,7 @@ PIE = '''<footer>
       <div><h4>Soluciones energéticas</h4><ul><li><a href="hogar.html">Hogar</a></li><li><a href="empresas.html">Empresas</a></li><li><a href="grandes-proyectos.html">Grandes proyectos</a></li><li><a href="index.html#mantenimiento">Mantenimiento</a></li></ul></div>
       <div><h4>Centro de ayuda</h4><ul><li><a href="contacto.html">Contáctanos</a></li><li><a href="contacto.html#cotizar">Cotiza tu sistema</a></li></ul></div>
     </div>
-    <div class="legal"><span>© <span class="js-anio">2026</span> ESA Energía Solar Accesible. Todos los derechos reservados.</span><span class="lema">MEJORANDO TU PRESENTE</span></div>
+    <div class="legal"><span>© <span class="js-anio">2026</span> ESA Energía Solar Accesible. Todos los derechos reservados.</span><span class="lema" translate="no">MEJORANDO TU PRESENTE</span></div>
   </div>
 </footer>'''
 
@@ -132,7 +134,7 @@ def pagina(archivo, cuerpo):
 <title>{titulo}</title>
 <meta name="description" content="{desc}">
 <link rel="canonical" href="{url}">
-<meta name="theme-color" content="#0A2F66">
+<meta name="theme-color" content="#FFFFFF">
 <meta property="og:type" content="website">
 <meta property="og:locale" content="es_BO">
 <meta property="og:site_name" content="ESA Energía Solar Accesible">
@@ -147,7 +149,8 @@ def pagina(archivo, cuerpo):
 <link rel="icon" type="image/png" href="img/favicon.png">
 <link rel="apple-touch-icon" href="img/apple-touch-icon.png">
 <link rel="preload" href="fonts/android.woff2" as="font" type="font/woff2" crossorigin>
-<link rel="preload" href="fonts/montserrat-latin-800-normal.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="fonts/outfit-latin-600-normal.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="{PORTADA.get(archivo, "img/hero.jpg")}" as="image" fetchpriority="high">
 <link rel="stylesheet" href="css/esa.css">{ld}
 </head>
 <body>

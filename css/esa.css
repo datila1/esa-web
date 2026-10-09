@@ -35,7 +35,10 @@ img{max-width:100%;display:block}
 section{padding:96px 0}
 .fondo{background:var(--claro)}
 .kicker{display:inline-block;font-weight:600;color:var(--azul)}
-h1,h2,h3{font-weight:600;letter-spacing:-.01em}
+h1,h2,h3{font-weight:600;letter-spacing:-.01em;text-wrap:balance}
+[id]{scroll-margin-top:84px}
+html{-webkit-tap-highlight-color:rgba(27,95,214,.15)}
+a,button,input,select,textarea,label{touch-action:manipulation}
 h2{font-size:clamp(1.8rem,3.2vw,2.4rem);line-height:1.2;margin:0 0 .9rem}
 .lead{font-size:1.08rem;color:var(--gris);max-width:640px}
 .centro{text-align:center}.centro .lead{margin-inline:auto}
@@ -92,13 +95,15 @@ header{position:sticky;top:0;z-index:50;background:#fff;box-shadow:0 2px 14px rg
 .puntos{position:absolute;z-index:4;left:50%;transform:translateX(-50%);bottom:34px;display:flex;gap:.6rem}
 .puntos button{background:rgba(255,255,255,.18);border:1px solid rgba(255,255,255,.5);color:#fff;border-radius:999px;padding:.4rem 1rem;font:500 .9rem Outfit,sans-serif;cursor:pointer}
 .puntos button[aria-pressed="true"]{background:#fff;color:var(--tinta)}
+.puntos .pausa{padding:.4rem .75rem;letter-spacing:-.1em}
+.puntos .pausa[aria-pressed="true"]{background:rgba(255,255,255,.18);color:#fff}
 
 /* Tarjeta blanca de beneficios que se monta sobre la portada */
 .beneficios-sobre{padding:0;position:relative;z-index:5;margin-top:-120px}
 .beneficios{background:#fff;border-radius:var(--radio);box-shadow:0 14px 40px rgba(20,30,50,.12);display:grid;grid-template-columns:repeat(3,1fr);gap:40px;padding:2.6rem 2.8rem}
 .beneficio{display:grid;grid-template-columns:44px 1fr;gap:.2rem 1rem}
 .beneficio svg{color:var(--azul);grid-row:span 2}
-.beneficio h3{font-size:1.3rem;line-height:1.3}
+.beneficio h2,.beneficio h3{font-size:1.3rem;line-height:1.3;margin:0}
 .beneficio p{color:var(--gris);margin-top:.6rem;line-height:1.75}
 
 /* Grillas */
@@ -229,7 +234,7 @@ footer .contacto-pie a{text-decoration:underline}
 .legal{border-top:1px solid rgba(255,255,255,.1);margin-top:48px;padding-top:22px;display:flex;justify-content:space-between;flex-wrap:wrap;gap:8px;font-size:.88rem}
 
 /* WhatsApp flotante */
-.wa{position:fixed;right:20px;bottom:20px;z-index:60;width:60px;height:60px;border-radius:50%;background:#25D366;display:grid;place-items:center;box-shadow:0 8px 20px rgba(0,0,0,.2)}
+.wa{position:fixed;right:calc(20px + env(safe-area-inset-right));bottom:calc(20px + env(safe-area-inset-bottom));z-index:60;width:60px;height:60px;border-radius:50%;background:#25D366;display:grid;place-items:center;box-shadow:0 8px 20px rgba(0,0,0,.2)}
 
 /* Responsivo */
 @media (max-width:1300px){.flecha.izq{left:-12px}.flecha.der{right:-12px}}

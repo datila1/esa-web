@@ -6,7 +6,7 @@
 <title>Contacto | ESA Energía Solar Accesible</title>
 <meta name="description" content="Escríbenos por WhatsApp al +591 776-66653, a comercial@esa.com.bo o visítanos en el Tercer Anillo Externo N° 3040, Santa Cruz de la Sierra.">
 <link rel="canonical" href="https://esa.com.bo/contacto.html">
-<meta name="theme-color" content="#0A2F66">
+<meta name="theme-color" content="#FFFFFF">
 <meta property="og:type" content="website">
 <meta property="og:locale" content="es_BO">
 <meta property="og:site_name" content="ESA Energía Solar Accesible">
@@ -21,7 +21,8 @@
 <link rel="icon" type="image/png" href="img/favicon.png">
 <link rel="apple-touch-icon" href="img/apple-touch-icon.png">
 <link rel="preload" href="fonts/android.woff2" as="font" type="font/woff2" crossorigin>
-<link rel="preload" href="fonts/montserrat-latin-800-normal.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="fonts/outfit-latin-600-normal.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="img/hero.jpg" as="image" fetchpriority="high">
 <link rel="stylesheet" href="css/esa.css">
 <script type="application/ld+json">
 {
@@ -108,7 +109,7 @@
 <a href="#contenido" class="saltar">Saltar al contenido</a>
 <header>
   <div class="wrap nav">
-    <a href="index.html" class="logo"><img src="img/logo.png" alt="ESA Energía Solar Accesible, ir al inicio" width="139" height="26"></a>
+    <a href="index.html" class="logo" translate="no"><img src="img/logo.png" alt="ESA Energía Solar Accesible, ir al inicio" width="139" height="26"></a>
     <button class="burger" aria-label="Abrir menú" aria-expanded="false" aria-controls="menu">☰</button>
     <ul class="menu" id="menu">
       <li><a href="index.html">Inicio</a></li>
@@ -150,9 +151,9 @@
       <label>Nombre<input name="nombre" autocomplete="name" required></label>
       <label>Teléfono / WhatsApp<input name="telefono" type="tel" autocomplete="tel" required></label>
       <label class="full">Motivo<select name="motivo"><option>Cotizar sistema para mi hogar</option><option>Cotizar sistema para mi empresa</option><option>Proyecto de gran escala</option><option>Mantenimiento de mi sistema</option><option>Cargador para auto eléctrico</option><option>Otro</option></select></label>
-      <label>Factura mensual de luz (Bs)<input name="factura" type="number" min="0" inputmode="numeric"></label>
-      <label>Zona o ciudad<input name="zona"></label>
-      <label class="full">Mensaje<textarea name="mensaje" rows="4"></textarea></label>
+      <label>Factura mensual de luz (Bs)<input name="factura" autocomplete="off" type="number" min="0" inputmode="numeric"></label>
+      <label>Zona o ciudad<input name="zona" autocomplete="off"></label>
+      <label class="full">Mensaje<textarea name="mensaje" autocomplete="off" rows="4"></textarea></label>
       <button class="btn btn-rojo" type="submit">Enviar por WhatsApp</button>
       <small>Se abrirá WhatsApp con tus datos listos para enviarnos.</small>
     </form>
@@ -177,7 +178,7 @@
       <div><h4>Soluciones energéticas</h4><ul><li><a href="hogar.html">Hogar</a></li><li><a href="empresas.html">Empresas</a></li><li><a href="grandes-proyectos.html">Grandes proyectos</a></li><li><a href="index.html#mantenimiento">Mantenimiento</a></li></ul></div>
       <div><h4>Centro de ayuda</h4><ul><li><a href="contacto.html">Contáctanos</a></li><li><a href="contacto.html#cotizar">Cotiza tu sistema</a></li></ul></div>
     </div>
-    <div class="legal"><span>© <span class="js-anio">2026</span> ESA Energía Solar Accesible. Todos los derechos reservados.</span><span class="lema">MEJORANDO TU PRESENTE</span></div>
+    <div class="legal"><span>© <span class="js-anio">2026</span> ESA Energía Solar Accesible. Todos los derechos reservados.</span><span class="lema" translate="no">MEJORANDO TU PRESENTE</span></div>
   </div>
 </footer>
 

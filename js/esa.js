@@ -16,6 +16,7 @@ const burger = document.querySelector(".burger"), menu = document.querySelector(
 if (burger) burger.addEventListener("click", () => {
   const abierto = menu.classList.toggle("abierto");
   burger.setAttribute("aria-expanded", abierto);
+  burger.setAttribute("aria-label", abierto ? "Cerrar menú" : "Abrir menú");
 });
 
 /* Formularios: arman el mensaje y abren WhatsApp (no necesitan servidor) */
@@ -43,7 +44,9 @@ document.querySelectorAll("[data-foto]").forEach(el => {
 const carrusel = document.querySelector(".carrusel");
 if (carrusel) {
   const slides = [...carrusel.querySelectorAll(".slide")];
-  const botones = [...carrusel.querySelectorAll(".puntos button")];
+  const botones = [...carrusel.querySelectorAll(".puntos button:not(.pausa)")];
+  const pausa = carrusel.querySelector(".pausa");
+  let pausado = false;
   let actual = 0, timer = null;
   const quieto = matchMedia("(prefers-reduced-motion: reduce)").matches;
   const mostrar = i => {
@@ -51,7 +54,17 @@ if (carrusel) {
     slides.forEach((s, k) => { s.classList.toggle("activa", k === actual); s.setAttribute("aria-hidden", k !== actual); s.inert = k !== actual; });
     botones.forEach((b, k) => b.setAttribute("aria-pressed", k === actual));
   };
-  const iniciar = () => { if (!quieto) { clearInterval(timer); timer = setInterval(() => mostrar(actual + 1), 7000); } };
+  const iniciar = () => { clearInterval(timer); if (!quieto && !pausado) timer = setInterval(() => mostrar(actual + 1), 7000); };
+  if (pausa) {
+    if (quieto) pausa.hidden = true;
+    pausa.addEventListener("click", () => {
+      pausado = !pausado;
+      pausa.setAttribute("aria-pressed", pausado);
+      pausa.setAttribute("aria-label", pausado ? "Reanudar el carrusel" : "Pausar el carrusel");
+      pausa.textContent = pausado ? "▶" : "❚❚";
+      iniciar();
+    });
+  }
   botones.forEach((b, k) => b.addEventListener("click", () => { mostrar(k); iniciar(); }));
   carrusel.addEventListener("mouseenter", () => clearInterval(timer));
   carrusel.addEventListener("mouseleave", iniciar);
