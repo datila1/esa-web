@@ -9,6 +9,9 @@ import json, pathlib, datetime, hashlib
 RAIZ = pathlib.Path(__file__).resolve().parent.parent
 DOM = "https://esa.com.bo/"
 
+# Google Analytics 4: pegar aquí el ID de medición (empieza con "G-"). Vacío = sin medición.
+GA_ID = ""
+
 MENU = [
     ("index.html", "Inicio"),
     ("hogar.html", "Hogar"),
@@ -130,6 +133,14 @@ def version(ruta):
     return hashlib.md5((RAIZ / ruta).read_bytes()).hexdigest()[:8]
 
 
+def analytics():
+    if not GA_ID:
+        return ""
+    return f'''
+<script async src="https://www.googletagmanager.com/gtag/js?id={GA_ID}"></script>
+<script>window.dataLayer=window.dataLayer||[];function gtag(){{dataLayer.push(arguments);}}gtag('js',new Date());gtag('config','{GA_ID}');</script>'''
+
+
 def pagina(archivo, cuerpo):
     titulo, desc = PAGINAS[archivo]
     url = DOM if archivo == "index.html" else DOM + archivo
@@ -161,7 +172,7 @@ def pagina(archivo, cuerpo):
 <link rel="preload" href="fonts/android.woff2" as="font" type="font/woff2" crossorigin>
 <link rel="preload" href="fonts/outfit-latin-600-normal.woff2" as="font" type="font/woff2" crossorigin>
 <link rel="preload" href="{PORTADA.get(archivo, "img/hero.jpg")}" as="image" fetchpriority="high">
-<link rel="stylesheet" href="css/esa.css?v={version("css/esa.css")}">{ld}
+<link rel="stylesheet" href="css/esa.css?v={version("css/esa.css")}">{ld}{analytics()}
 </head>
 <body>
 {cabecera(archivo)}

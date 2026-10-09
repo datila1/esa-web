@@ -29,6 +29,7 @@ document.querySelectorAll("form[data-asunto]").forEach(form => {
       const etiqueta = c.closest("label") ? c.closest("label").firstChild.textContent.trim() : c.name;
       lineas.push(etiqueta + ": " + c.value.trim());
     });
+    if (typeof gtag === "function") gtag("event", "generate_lead", { form_type: form.dataset.asunto, page: location.pathname });
     window.open(waURL(lineas.join("\n")), "_blank");
   });
 });
@@ -79,4 +80,18 @@ document.querySelectorAll(".deslizar").forEach(d => {
     const paso = pista.clientWidth * 0.8 * (b.classList.contains("izq") ? -1 : 1);
     pista.scrollBy({ left: paso, behavior: matchMedia("(prefers-reduced-motion: reduce)").matches ? "auto" : "smooth" });
   }));
+});
+
+/* Medición: clics a WhatsApp y a llamadas (solo si Google Analytics está activo) */
+document.addEventListener("click", e => {
+  const a = e.target.closest("a");
+  if (!a || typeof gtag !== "function") return;
+  const lugar = a.classList.contains("wa") ? "boton_flotante"
+    : a.closest(".franja-atencion") ? "franja_celular"
+    : a.closest("header") ? "menu"
+    : a.closest("footer") ? "pie"
+    : a.closest(".contacto-final") ? "contacto_final"
+    : a.closest("section")?.id || "pagina";
+  if (a.href.includes("wa.me")) gtag("event", "whatsapp_clicked", { location: lugar, page: location.pathname });
+  else if (a.href.startsWith("tel:")) gtag("event", "phone_clicked", { location: lugar, page: location.pathname });
 });
