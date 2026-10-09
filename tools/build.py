@@ -4,7 +4,8 @@ Uso:  python3 tools/build.py   (desde la raíz del repositorio)
 Cabecera, menú, pie, WhatsApp y metadatos se escriben una sola vez aquí;
 el contenido de cada página está en tools/paginas/*.html.
 """
-import json, pathlib, datetime, hashlib
+import json, pathlib, datetime, hashlib, os
+from bs4 import BeautifulSoup
 
 RAIZ = pathlib.Path(__file__).resolve().parent.parent
 DOM = "https://esa.com.bo/"
@@ -37,6 +38,51 @@ PAGINAS = {
 }
 
 PORTADA = {"hogar.html": "img/hogar-portada.jpg"}
+
+# BORRADOR=1 python3 tools/build.py  -> genera mostrando bloques pendientes y fotos faltantes (solo para vistas previas).
+BORRADOR = os.environ.get("BORRADOR") == "1"
+
+SERVICIOS = {
+    "hogar.html": ("Instalación de paneles solares para el hogar", "Diseño, instalación, trámite de conexión a la red de CRE y mantenimiento de sistemas solares fotovoltaicos para casas."),
+    "empresas.html": ("Energía solar para empresas", "Estudio energético, diseño, instalación, conexión a la red y mantenimiento de sistemas solares para comercios, oficinas, clínicas, colegios e industrias."),
+    "grandes-proyectos.html": ("Plantas solares e ingeniería eléctrica a gran escala", "Desarrollo, ingeniería, suministro, construcción, operación y mantenimiento de plantas solares e ingeniería eléctrica para industrias e instituciones."),
+}
+
+
+def publico(html):
+    """Quita de la web pública lo que aún no tiene contenido real: bloques pendientes,
+    secciones marcadas data-borrador, etiquetas de foto provisional y fotos que no existen."""
+    if BORRADOR:
+        return html
+    sopa = BeautifulSoup(html, "html.parser")
+    for el in sopa.select("[data-borrador], .pendiente, .tag-foto"):
+        el.decompose()
+    for el in sopa.select(".producto, .tipo, .finan, .testimonio, .caja, li"):
+        if el.select_one(".tag-pend"):
+            el.decompose()
+    def falta(el):
+        return el.has_attr("data-foto") and not (RAIZ / el["data-foto"]).exists()
+    # tarjetas: si a alguna de un grupo le falta la foto, el grupo queda sin fotos (se ve parejo)
+    for grupo in {t.parent for t in sopa.select(".tarjeta")}:
+        fotos = grupo.select(".tarjeta > .foto")
+        if any(falta(f) for f in fotos):
+            for f in fotos:
+                f.decompose()
+    for el in sopa.select(".foto"):
+        if falta(el):
+            el.decompose()
+    # carruseles de tarjetas con 4 o menos: sin flechas y centrados
+    for d in sopa.select(".deslizar"):
+        pista = d.select_one(".pista")
+        if pista and len(pista.find_all(recursive=False)) <= 4:
+            pista["class"] = pista.get("class", []) + ["pocas"]
+            for f in d.select(".flecha"):
+                f.decompose()
+    car = sopa.select_one(".carrusel")
+    if car and len(car.select(".slide")) <= 1:
+        for p in car.select(".puntos"):
+            p.decompose()
+    return str(sopa)
 
 EMPRESA = {
     "@context": "https://schema.org",
@@ -115,7 +161,6 @@ PIE = '''<footer>
         <p>WhatsApp <a href="#" class="js-wa">+591 776-66653</a></p>
         <p>Correo <a class="js-mail" href="mailto:comercial@esa.com.bo">comercial@esa.com.bo</a></p>
         <p>Dirección: Tercer Anillo Externo N° 3040, entre Beni y Alemana, Santa Cruz de la Sierra, Bolivia</p>
-        <div class="redes" title="Redes sociales pendientes"><span>FB</span><span>IG</span><span>TT</span><span>IN</span></div>
       </div>
       <div><h4>Compañía</h4><ul><li><a href="nosotros.html">Nosotros</a></li><li><a href="nosotros.html#ecosistema">Nuestro ecosistema</a></li><li><a href="contacto.html">Trabaja con nosotros</a></li></ul></div>
       <div><h4>Soluciones energéticas</h4><ul><li><a href="hogar.html">Hogar</a></li><li><a href="empresas.html">Empresas</a></li><li><a href="grandes-proyectos.html">Grandes proyectos</a></li><li><a href="index.html#mantenimiento">Mantenimiento</a></li></ul></div>
@@ -147,6 +192,12 @@ def pagina(archivo, cuerpo):
     ld = ""
     if archivo in ("index.html", "contacto.html"):
         ld = '\n<script type="application/ld+json">\n' + json.dumps(EMPRESA, ensure_ascii=False, indent=1) + "\n</script>"
+    if archivo in SERVICIOS:
+        nombre, descripcion = SERVICIOS[archivo]
+        servicio = {"@context": "https://schema.org", "@type": "Service", "name": nombre, "description": descripcion,
+                    "serviceType": nombre, "url": url, "provider": {"@id": DOM + "#empresa", "name": "ESA - Energía Solar Accesible"},
+                    "areaServed": [{"@type": "AdministrativeArea", "name": "Santa Cruz, Bolivia"}, {"@type": "Country", "name": "Bolivia"}]}
+        ld = '\n<script type="application/ld+json">\n' + json.dumps(servicio, ensure_ascii=False, indent=1) + "\n</script>"
     return f'''<!doctype html>
 <html lang="es-BO">
 <head>
@@ -195,7 +246,7 @@ def pagina(archivo, cuerpo):
 def main():
     hoy = datetime.date.today().isoformat()
     for archivo, _ in MENU:
-        cuerpo = (RAIZ / "tools" / "paginas" / archivo).read_text(encoding="utf-8")
+        cuerpo = publico((RAIZ / "tools" / "paginas" / archivo).read_text(encoding="utf-8"))
         (RAIZ / archivo).write_text(pagina(archivo, cuerpo), encoding="utf-8")
         print("ok", archivo)
     urls = "\n".join(f"  <url>\n    <loc>{DOM if a == 'index.html' else DOM + a}</loc>\n    <lastmod>{hoy}</lastmod>\n  </url>" for a, _ in MENU)

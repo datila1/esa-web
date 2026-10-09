@@ -127,6 +127,8 @@ header{position:sticky;top:0;z-index:50;background:#fff;box-shadow:0 2px 14px rg
 .pista>*{scroll-snap-align:start}
 .pista.tres{grid-auto-columns:calc((100% - 2*24px)/3)}
 .pista.dos{grid-auto-columns:calc((100% - 24px)/2)}
+.pista.pocas{justify-content:center}
+@media (max-width:960px){.pista.pocas{justify-content:start}}
 .flecha{position:absolute;top:50%;transform:translateY(-50%);width:48px;height:48px;border-radius:50%;border:0;background:#fff;box-shadow:0 4px 14px rgba(20,30,50,.12);cursor:pointer;color:var(--gris);font-size:1.3rem;z-index:2}
 .flecha.izq{left:-70px}.flecha.der{right:-70px}
 
@@ -151,7 +153,7 @@ header{position:sticky;top:0;z-index:50;background:#fff;box-shadow:0 2px 14px rg
 .tipo h3{font-size:1.45rem;line-height:1.25}
 .tipo p{color:var(--gris);font-size:.95rem}
 .tipo .ver{margin-top:auto}
-.estado{display:inline-block;font:600 .75rem Outfit,sans-serif;padding:.2rem .7rem;border-radius:6px;background:#E5F4EC;color:var(--verde)}
+.estado{display:inline-block;font:600 .8rem Outfit,sans-serif;padding:.2rem .7rem;border-radius:6px;background:#E5F4EC;color:#11663C}
 
 /* Testimonios */
 .testimonio{border:1px solid #C9D0D9;border-radius:var(--radio);padding:1.5rem;display:flex;flex-direction:column;gap:1rem}
@@ -239,6 +241,17 @@ footer .contacto-pie a{text-decoration:underline}
 
 /* Franja de atención: solo en celular, debajo del menú */
 .franja-atencion{display:none}
+
+/* Bloques que quedan solos al ocultar lo pendiente */
+.g2>:only-child{grid-column:1/-1;max-width:760px}
+@media (min-width:961px){.g3>:only-child{grid-column:2}}
+
+/* Áreas táctiles de al menos 44px en celular */
+@media (max-width:600px),(pointer:coarse){
+  .logo{display:inline-flex;align-items:center;min-height:44px}
+  footer ul a,.contacto-pie a,.datos a,.migas a,.ver{display:inline-block;padding:.65rem 0}
+  .btn-borde,.pastilla,.puntos button{min-height:44px}
+}
 
 /* Responsivo */
 @media (max-width:1300px){.flecha.izq{left:-12px}.flecha.der{right:-12px}}

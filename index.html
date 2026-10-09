@@ -23,7 +23,7 @@
 <link rel="preload" href="fonts/android.woff2" as="font" type="font/woff2" crossorigin>
 <link rel="preload" href="fonts/outfit-latin-600-normal.woff2" as="font" type="font/woff2" crossorigin>
 <link rel="preload" href="img/hero.jpg" as="image" fetchpriority="high">
-<link rel="stylesheet" href="css/esa.css?v=4ac7c916">
+<link rel="stylesheet" href="css/esa.css?v=28bcacbd">
 <script type="application/ld+json">
 {
  "@context": "https://schema.org",
@@ -136,146 +136,91 @@
 
 <main id="contenido">
 <!-- Portada en carrusel: 3 diapositivas -->
-<section class="carrusel" aria-roledescription="carrusel" aria-label="Soluciones de ESA">
-  <div class="slide activa" data-foto="img/hero.jpg">
-    <div class="wrap">
-      <span class="lema">MEJORANDO TU PRESENTE</span>
-      <h1>Baja tu factura de luz generando tu propia energía solar</h1>
-      <p>Paneles solares para tu casa en Santa Cruz, Bolivia. Nosotros hacemos el diseño, el trámite con CRE y el mantenimiento.</p>
-      <div class="acciones"><a href="hogar.html#cotizar" class="btn btn-rojo">Cotiza ahora</a><a href="hogar.html" class="btn btn-linea">Energía para tu hogar</a></div>
-    </div>
-  </div>
-  <div class="slide" data-foto="img/inicio-empresas.jpg">
-    <div class="wrap">
-      <span class="lema">MEJORANDO TU PRESENTE</span>
-      <h2>Reducimos los costos de energía de tu empresa</h2>
-      <p>El techo de tu negocio puede producir parte de la electricidad que hoy pagas. Te mostramos cuánto cuesta y en cuántos años se paga.</p>
-      <div class="acciones"><a href="empresas.html#cotizar" class="btn btn-rojo">Cotiza con nosotros</a><a href="empresas.html" class="btn btn-linea">Soluciones para empresas</a></div>
-    </div>
-    <span class="tag-foto">Foto provisional · img/inicio-empresas.jpg</span>
-  </div>
-  <div class="slide" data-foto="img/inicio-industria.jpg">
-    <div class="wrap">
-      <span class="lema">MEJORANDO TU PRESENTE</span>
-      <h2>Generación distribuida e ingeniería eléctrica a gran escala</h2>
-      <p>Plantas solares e ingeniería eléctrica para industrias e instituciones. Diseñamos, construimos y operamos.</p>
-      <div class="acciones"><a href="grandes-proyectos.html" class="btn btn-rojo">Conocer más</a></div>
-    </div>
-    <span class="tag-foto">Foto provisional · img/inicio-industria.jpg</span>
-  </div>
-  <div class="puntos" role="group" aria-label="Elegir diapositiva">
-    <button type="button" class="pausa" aria-pressed="false" aria-label="Pausar el carrusel">❚❚</button>
-    <button type="button" aria-pressed="true">Hogar</button>
-    <button type="button" aria-pressed="false">Empresas</button>
-    <button type="button" aria-pressed="false">Grandes proyectos</button>
-  </div>
-</section>
+<section aria-label="Soluciones de ESA" aria-roledescription="carrusel" class="carrusel">
+<div class="slide activa" data-foto="img/hero.jpg">
+<div class="wrap">
+<span class="lema">MEJORANDO TU PRESENTE</span>
+<h1>Paneles solares para tu casa, con 7 años de mantenimiento gratis</h1>
+<p>Un ingeniero de ESA diseña tu sistema, hace el trámite con CRE y lo mantiene. Santa Cruz, Bolivia.</p>
+<div class="acciones"><a class="btn btn-rojo" href="hogar.html#cotizar">Cotiza ahora</a></div>
+</div>
+</div>
 
-<!-- Historia destacada con video -->
-<section>
-  <div class="wrap g2">
-    <div class="foto" data-foto="img/historia.jpg"><span class="tag-foto">Foto o video provisional · img/historia.jpg</span></div>
-    <div>
-      <h2>Un día con energía solar</h2>
-      <p class="lead">Una familia con su sistema instalado por ESA cuenta cuánto genera y cuánto ahorra.</p>
-      <div class="pendiente mt"><span class="tag-pend">PENDIENTE</span><p>Video de la primera instalación de ESA (YouTube o archivo propio). Se graba con el primer cliente que acepte.</p></div>
-    </div>
-  </div>
+
+
 </section>
+<!-- Historia destacada con video -->
 
 <!-- Cifras: garantías -->
 <section class="cifras">
-  <div class="wrap">
-    <div class="g3">
-      <div class="cifra"><b>12<small>años</small></b><span>de garantía de producto</span></div>
-      <div class="cifra"><b>30<small>años</small></b><span>de garantía de eficiencia y potencia de los paneles</span></div>
-      <div class="cifra"><b>7<small>años</small></b><span>de mantenimiento preventivo gratuito</span></div>
-    </div>
-    <p class="nota">Las garantías de producto y de potencia las otorga cada fabricante y se detallan en cada propuesta. El mantenimiento preventivo gratuito lo brinda ESA.</p>
-  </div>
+<div class="wrap">
+<div class="g3">
+<div class="cifra"><b>12<small>años</small></b><span>de garantía de producto</span></div>
+<div class="cifra"><b>30<small>años</small></b><span>de garantía de eficiencia y potencia de los paneles</span></div>
+<div class="cifra"><b>7<small>años</small></b><span>de mantenimiento preventivo gratuito</span></div>
+</div>
+<p class="nota">Las garantías de producto y de potencia las otorga cada fabricante y se detallan en cada propuesta. El mantenimiento preventivo gratuito lo brinda ESA.</p>
+</div>
 </section>
-
 <!-- Soluciones: 4 tarjetas -->
 <section class="fondo" id="soluciones">
-  <div class="wrap">
-    <h2>¿Para quién es?</h2>
-    <p class="lead">Trabajamos con casas, negocios, industrias e instituciones públicas en Bolivia.</p>
-    <div class="g4 mt">
-      <a class="tarjeta" href="hogar.html">
-        <div class="foto" data-foto="img/card-hogar.jpg"><span class="tag-foto">img/card-hogar.jpg</span></div>
-        <div class="cuerpo"><h3>Hogar</h3><p>Paneles en tu techo para pagar menos luz cada mes.</p><span class="ir">Ver soluciones para el hogar</span></div>
-      </a>
-      <a class="tarjeta" href="empresas.html">
-        <div class="foto" data-foto="img/card-empresas.jpg"><span class="tag-foto">img/card-empresas.jpg</span></div>
-        <div class="cuerpo"><h3>Empresas</h3><p>Menos costo operativo y una inversión con retorno medible.</p><span class="ir">Ver soluciones para empresas</span></div>
-      </a>
-      <a class="tarjeta" href="#mantenimiento">
-        <div class="foto" data-foto="img/card-mantenimiento.jpg"><span class="tag-foto">img/card-mantenimiento.jpg</span></div>
-        <div class="cuerpo"><h3>Mantenimiento y monitoreo</h3><p>Tu sistema rindiendo al máximo durante toda su vida útil.</p><span class="ir">Ver mantenimiento</span></div>
-      </a>
-      <a class="tarjeta" href="grandes-proyectos.html">
-        <div class="foto" data-foto="img/card-industria.jpg"><span class="tag-foto">img/card-industria.jpg</span></div>
-        <div class="cuerpo"><h3>Grandes proyectos</h3><p>Plantas solares e ingeniería eléctrica para industrias.</p><span class="ir">Ver grandes proyectos</span></div>
-      </a>
-    </div>
-  </div>
-</section>
+<div class="wrap">
+<h2>¿Para quién es?</h2>
+<p class="lead">Trabajamos con casas, negocios, industrias e instituciones públicas en Bolivia.</p>
+<div class="g4 mt">
+<a class="tarjeta" href="hogar.html">
 
+<div class="cuerpo"><h3>Hogar</h3><p>Paneles en tu techo para pagar menos luz cada mes.</p><span class="ir">Ver soluciones para el hogar</span></div>
+</a>
+<a class="tarjeta" href="empresas.html">
+
+<div class="cuerpo"><h3>Empresas</h3><p>Menos costo operativo y una inversión con retorno medible.</p><span class="ir">Ver soluciones para empresas</span></div>
+</a>
+<a class="tarjeta" href="#mantenimiento">
+
+<div class="cuerpo"><h3>Mantenimiento y monitoreo</h3><p>Tu sistema rindiendo al máximo durante toda su vida útil.</p><span class="ir">Ver mantenimiento</span></div>
+</a>
+<a class="tarjeta" href="grandes-proyectos.html">
+
+<div class="cuerpo"><h3>Grandes proyectos</h3><p>Plantas solares e ingeniería eléctrica para industrias.</p><span class="ir">Ver grandes proyectos</span></div>
+</a>
+</div>
+</div>
+</section>
 <!-- Mantenimiento -->
 <section id="mantenimiento">
-  <div class="wrap g2 inv">
-    <div class="foto" data-foto="img/mantenimiento.jpg"><span class="tag-foto">Foto provisional · img/mantenimiento.jpg</span></div>
-    <div>
-      <span class="kicker">Mantenimiento y monitoreo</span>
-      <h2>Seguimos contigo después de la instalación</h2>
-      <p class="lead">Un sistema bien mantenido produce más y dura más. Por eso incluimos 7 años de mantenimiento preventivo gratuito.</p>
-      <ul class="lista">
-        <li>Mantenimiento preventivo: limpieza, revisión eléctrica y ajustes</li>
-        <li>Monitoreo de la energía que genera tu sistema</li>
-        <li>Mantenimiento correctivo ante fallas o alertas</li>
-        <li>Soporte técnico de ingenieros que conocen tu instalación</li>
-      </ul>
-      <a href="contacto.html#cotizar" class="btn btn-azul">Solicita mantenimiento</a>
-    </div>
-  </div>
-</section>
+<div class="wrap g2 inv">
 
-<!-- Testimonios -->
-<section class="fondo">
-  <div class="wrap">
-    <h2>¿Por qué elegirnos?</h2>
-    <p class="lead">Aquí vas a encontrar lo que cuentan nuestros clientes.</p>
-    <div class="g3 mt">
-      <div class="pendiente"><span class="tag-pend">PENDIENTE</span><p>Testimonio 1: nombre, tipo de cliente, potencia instalada, ahorro y foto.</p></div>
-      <div class="pendiente"><span class="tag-pend">PENDIENTE</span><p>Testimonio 2.</p></div>
-      <div class="pendiente"><span class="tag-pend">PENDIENTE</span><p>Testimonio 3.</p></div>
-    </div>
-  </div>
+<div>
+<span class="kicker">Mantenimiento y monitoreo</span>
+<h2>Seguimos contigo después de la instalación</h2>
+<p class="lead">Un sistema bien mantenido produce más y dura más. Por eso incluimos 7 años de mantenimiento preventivo gratuito.</p>
+<ul class="lista">
+<li>Mantenimiento preventivo: limpieza, revisión eléctrica y ajustes</li>
+<li>Monitoreo de la energía que genera tu sistema</li>
+<li>Mantenimiento correctivo ante fallas o alertas</li>
+<li>Soporte técnico de ingenieros que conocen tu instalación</li>
+</ul>
+<a class="btn btn-azul" href="contacto.html#cotizar">Solicita mantenimiento</a>
+</div>
+</div>
 </section>
+<!-- Testimonios -->
 
 <!-- Logos de clientes -->
-<section>
-  <div class="wrap">
-    <h2 class="centro">Confían en nosotros</h2>
-    <div class="logos mt">
-      <div class="pendiente">Logo pendiente</div><div class="pendiente">Logo pendiente</div><div class="pendiente">Logo pendiente</div>
-      <div class="pendiente">Logo pendiente</div><div class="pendiente">Logo pendiente</div><div class="pendiente">Logo pendiente</div>
-    </div>
-  </div>
-</section>
 
 <!-- Ecosistema -->
 <section class="fondo">
-  <div class="wrap">
-    <h2>Además de paneles solares</h2>
-    <p class="lead">También hacemos eficiencia energética y cargadores para autos eléctricos.</p>
-    <div class="g3 mt">
-      <div class="caja oscura"><h3>Energía solar fotovoltaica</h3><p>Diseño, suministro, instalación, generación distribuida, monitoreo y mantenimiento.</p></div>
-      <div class="caja"><h3>Soluciones energéticas</h3><p>Diagnóstico y eficiencia energética, gestión del consumo y de la demanda, operación y mantenimiento.</p></div>
-      <div class="caja"><h3>Electromovilidad</h3><p>Cargadores residenciales y comerciales, infraestructura de carga y electrolineras.</p></div>
-    </div>
-    <div class="acciones"><a href="nosotros.html#ecosistema" class="btn btn-borde">Conoce a ESA</a></div>
-  </div>
+<div class="wrap">
+<h2>Además de paneles solares</h2>
+<p class="lead">También hacemos eficiencia energética y cargadores para autos eléctricos.</p>
+<div class="g3 mt">
+<div class="caja oscura"><h3>Energía solar fotovoltaica</h3><p>Diseño, suministro, instalación, generación distribuida, monitoreo y mantenimiento.</p></div>
+<div class="caja"><h3>Soluciones energéticas</h3><p>Diagnóstico y eficiencia energética, gestión del consumo y de la demanda, operación y mantenimiento.</p></div>
+<div class="caja"><h3>Electromovilidad</h3><p>Cargadores residenciales y comerciales, infraestructura de carga y electrolineras.</p></div>
+</div>
+<div class="acciones"><a class="btn btn-borde" href="nosotros.html#ecosistema">Conoce a ESA</a></div>
+</div>
 </section>
 
 <section class="contacto-final">
@@ -300,7 +245,6 @@
         <p>WhatsApp <a href="#" class="js-wa">+591 776-66653</a></p>
         <p>Correo <a class="js-mail" href="mailto:comercial@esa.com.bo">comercial@esa.com.bo</a></p>
         <p>Dirección: Tercer Anillo Externo N° 3040, entre Beni y Alemana, Santa Cruz de la Sierra, Bolivia</p>
-        <div class="redes" title="Redes sociales pendientes"><span>FB</span><span>IG</span><span>TT</span><span>IN</span></div>
       </div>
       <div><h4>Compañía</h4><ul><li><a href="nosotros.html">Nosotros</a></li><li><a href="nosotros.html#ecosistema">Nuestro ecosistema</a></li><li><a href="contacto.html">Trabaja con nosotros</a></li></ul></div>
       <div><h4>Soluciones energéticas</h4><ul><li><a href="hogar.html">Hogar</a></li><li><a href="empresas.html">Empresas</a></li><li><a href="grandes-proyectos.html">Grandes proyectos</a></li><li><a href="index.html#mantenimiento">Mantenimiento</a></li></ul></div>
