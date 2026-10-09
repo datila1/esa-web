@@ -77,7 +77,7 @@ def cabecera(archivo):
     return f'''<a href="#contenido" class="saltar">Saltar al contenido</a>
 <header>
   <div class="wrap nav">
-    <a href="index.html" class="logo" translate="no"><img src="img/logo.png" alt="ESA Energía Solar Accesible, ir al inicio" width="139" height="26"></a>
+    <a href="index.html" class="logo" translate="no"><img src="img/logo.png" alt="ESA Energía Solar Accesible, ir al inicio" width="117" height="22"></a>
     <button class="burger" aria-label="Abrir menú" aria-expanded="false" aria-controls="menu">☰</button>
     <ul class="menu" id="menu">
 {chr(10).join(items)}
