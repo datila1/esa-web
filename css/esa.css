@@ -233,8 +233,12 @@ footer .contacto-pie a{text-decoration:underline}
 .redes span{width:34px;height:34px;border:1.5px dashed rgba(255,255,255,.35);border-radius:8px;display:grid;place-items:center;font-size:.6rem;color:rgba(255,255,255,.55)}
 .legal{border-top:1px solid rgba(255,255,255,.1);margin-top:48px;padding-top:22px;display:flex;justify-content:space-between;flex-wrap:wrap;gap:8px;font-size:.88rem}
 
-/* WhatsApp flotante */
-.wa{position:fixed;right:calc(20px + env(safe-area-inset-right));bottom:calc(20px + env(safe-area-inset-bottom));z-index:60;width:60px;height:60px;border-radius:50%;background:#25D366;display:grid;place-items:center;box-shadow:0 8px 20px rgba(0,0,0,.2)}
+/* WhatsApp flotante: pestaña blanca pegada al borde derecho */
+.wa{position:fixed;right:0;bottom:calc(28px + env(safe-area-inset-bottom));z-index:60;width:74px;height:62px;padding-right:env(safe-area-inset-right);border-radius:999px 0 0 999px;background:#fff;color:#25D366;display:grid;place-items:center;box-shadow:0 6px 22px rgba(10,30,60,.22)}
+.wa:hover{color:#1DA851}
+
+/* Franja de atención: solo en celular, debajo del menú */
+.franja-atencion{display:none}
 
 /* Responsivo */
 @media (max-width:1300px){.flecha.izq{left:-12px}.flecha.der{right:-12px}}
@@ -256,6 +260,20 @@ footer .contacto-pie a{text-decoration:underline}
 }
 @media (max-width:600px){
   body{font-size:16px}
+  .nav{height:62px}
+  .logo img{height:30px}
+  .menu{inset:62px 0 auto 0}
+  .burger{font-size:2rem}
+  .franja-atencion{display:flex;flex-direction:column;align-items:center;gap:.6rem;background:linear-gradient(90deg,#0F5CF0,#3F86FF);color:#fff;padding:.9rem 16px 1rem;text-align:center}
+  .franja-atencion p{font-size:.95rem;font-weight:500}
+  .pastilla{display:inline-flex;align-items:center;gap:.5rem;background:rgba(255,255,255,.16);border:1px solid rgba(255,255,255,.28);border-radius:999px;padding:.45rem 1.2rem;font-weight:600;font-size:1rem}
+  .pastilla svg{flex:none}
+  .pastilla.js-wa{background:rgba(37,211,102,.22);border-color:rgba(37,211,102,.55)}
+  .carrusel{height:auto;min-height:640px}
+  .slide h1,.slide h2,.portada h1{font-size:2.55rem;line-height:1.1}
+  .slide p,.portada p{font-size:1.3rem;line-height:1.35}
+  .slide .lema{font-size:.95rem}
+  .slide .btn-linea{display:none}
   section{padding:64px 0}
   .g3,.g4,.g5,.canales,.form,.pie{grid-template-columns:1fr}
   .foto{min-height:260px}
@@ -263,7 +281,7 @@ footer .contacto-pie a{text-decoration:underline}
   .beneficios-sobre{margin-top:-100px}
   .pista,.pista.tres,.pista.dos{grid-auto-columns:85%}
   .flecha{display:none}
-  .carrusel{min-height:620px}
+
   .portada::after,.slide::after{background:linear-gradient(180deg,rgba(8,20,45,.25) 0%,rgba(8,20,45,.5) 45%,rgba(8,20,45,.45) 100%)}
 }
 .producto .img{--img:none;background:var(--img) center/contain no-repeat;background-origin:content-box}

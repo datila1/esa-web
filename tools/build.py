@@ -83,7 +83,12 @@ def cabecera(archivo):
 {chr(10).join(items)}
     </ul>
   </div>
-</header>'''
+</header>
+<div class="franja-atencion">
+  <p>Escríbenos o llámanos: te responde un ingeniero de ESA.</p>
+  <a class="pastilla" href="tel:+59177666653">{ICONO_TEL.replace('width="26" height="26"','width="18" height="18"')}Llámanos al 776-66653</a>
+  <a class="pastilla js-wa" href="#">{ICONO_WA.format(t=18)}WhatsApp +591 776-66653</a>
+</div>'''
 
 
 CONTACTO_FINAL = f'''<section class="contacto-final">
@@ -117,7 +122,7 @@ PIE = '''<footer>
   </div>
 </footer>'''
 
-WA_FLOTANTE = f'<a href="#" class="wa js-wa" aria-label="Escríbenos por WhatsApp" style="color:#fff">{ICONO_WA.format(t=32)}</a>'
+WA_FLOTANTE = f'<a href="#" class="wa js-wa" aria-label="Escríbenos por WhatsApp">{ICONO_WA.format(t=34)}</a>'
 
 
 def pagina(archivo, cuerpo):
