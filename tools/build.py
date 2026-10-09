@@ -21,9 +21,9 @@ MENU = [
 PAGINAS = {
     "index.html": ("Paneles solares en Santa Cruz, Bolivia | ESA Energía Solar",
                    "Paneles solares para casas, empresas e industrias en Santa Cruz de la Sierra, conectados a la red de CRE. Diseño, instalación y mantenimiento. Cotiza gratis."),
-    "hogar.html": ("Paneles solares para tu casa en Santa Cruz | ESA",
+    "hogar.html": ("Paneles solares para tu casa en Santa Cruz, Bolivia | ESA",
                    "Genera tu propia energía y baja tu factura de luz. Sistemas solares para hogares conectados a la red de CRE, con 7 años de mantenimiento preventivo gratuito."),
-    "empresas.html": ("Energía solar para empresas en Santa Cruz | ESA",
+    "empresas.html": ("Energía solar para empresas en Santa Cruz, Bolivia | ESA",
                       "Reduce los costos de energía de tu empresa con un sistema solar diseñado según tu consumo real. Estudio energético, instalación, operación y mantenimiento."),
     "grandes-proyectos.html": ("Plantas solares e ingeniería eléctrica a gran escala | ESA",
                                "Plantas solares e ingeniería eléctrica para industrias e instituciones en Bolivia. Estudio, construcción, operación y mantenimiento con un mismo equipo."),
@@ -51,7 +51,7 @@ EMPRESA = {
     "address": {"@type": "PostalAddress",
                 "streetAddress": "Tercer Anillo Externo N° 3040, entre Beni y Alemana",
                 "addressLocality": "Santa Cruz de la Sierra", "addressRegion": "Santa Cruz", "addressCountry": "BO"},
-    "areaServed": {"@type": "AdministrativeArea", "name": "Santa Cruz, Bolivia"},
+    "areaServed": [{"@type": "AdministrativeArea", "name": "Santa Cruz, Bolivia"}, {"@type": "Country", "name": "Bolivia"}],
     "knowsAbout": ["Energía solar fotovoltaica", "Generación distribuida", "Ingeniería eléctrica",
                    "Eficiencia energética", "Electromovilidad"],
     "hasOfferCatalog": {"@type": "OfferCatalog", "name": "Soluciones ESA", "itemListElement": [
@@ -106,7 +106,7 @@ PIE = '''<footer>
         <p>Llámanos al <a href="tel:+59177666653">(591) 776-66653</a></p>
         <p>WhatsApp <a href="#" class="js-wa">+591 776-66653</a></p>
         <p>Correo <a class="js-mail" href="mailto:comercial@esa.com.bo">comercial@esa.com.bo</a></p>
-        <p>Dirección: Tercer Anillo Externo N° 3040, entre Beni y Alemana, Santa Cruz de la Sierra</p>
+        <p>Dirección: Tercer Anillo Externo N° 3040, entre Beni y Alemana, Santa Cruz de la Sierra, Bolivia</p>
         <div class="redes" title="Redes sociales pendientes"><span>FB</span><span>IG</span><span>TT</span><span>IN</span></div>
       </div>
       <div><h4>Compañía</h4><ul><li><a href="nosotros.html">Nosotros</a></li><li><a href="nosotros.html#ecosistema">Nuestro ecosistema</a></li><li><a href="contacto.html">Trabaja con nosotros</a></li></ul></div>
